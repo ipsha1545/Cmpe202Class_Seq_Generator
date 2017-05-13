@@ -1,5 +1,4 @@
 
-
 public class ConcreteObserver implements Observer {
  
 	protected String observerState;

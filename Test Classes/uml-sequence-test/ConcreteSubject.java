@@ -1,11 +1,11 @@
-                    
-import java.util.*;
+
+import java.util.ArrayList;
 
 public class ConcreteSubject implements Subject {
  
 	private String subjectState;
 	 
-	private Collection<Observer> observers = new ArrayList<Observer>() ;
+	private ArrayList<Observer> observers = new ArrayList<Observer>() ;
 	 
 	public String getState() {
 		return subjectState ;
