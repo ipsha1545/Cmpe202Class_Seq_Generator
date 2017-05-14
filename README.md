@@ -1,11 +1,11 @@
-# uml-generator-java
-A Parser which converts Java Source Code into a  UML Diagram
+# Java uml-generator
+A Parser which generates UML Class Diagram from Java code
 ***
-### Compile Instructions
+### Instructions for execution
 
 #### Requirements:
 - Java JDK version 1.8
-- Working internet connection (only for class diagram)
+- Maven
 
 The program expects following arguments:
 
@@ -29,57 +29,52 @@ in second argument.
   - Ex – diagram
 
 Example:-
-To generate class diagram
+class diagram
 ```command
 java -jar umlparser.jar class "C:\Users\uml-generator-java\Test Classes\class-diagram-test-1" diagram
 ```
 
-*^creates diagram.png*
 
 For sequence diagram, additional 2 arguments are required before the name of output file argument
 
-4. Class Name
+4. Name of class
   * Class Name in which the method resides for which the sequence diagram is needed
   * Ex: Customer
 
-5. Method Name
+5. Name of function
   - Method Name for which the sequence diagram is needed
   - Do not include parenthesis, brackets after function name
   - Ex - depositMoney
 
 
-To generate sequence diagram
+sequence diagram
 ```command
 java -jar umlparser.jar seq "C:\Users\uml-generator-java\Test Classes\sequence-diagram-test-1" Customer depositMoney diagram
 ```
 
-*^creates diagram.png*
+
 ***
-### Details of libraries and tools used
+### Libraries and tools 
 
 
 There are 2 parts of this UML parser program:
 
-- Parser – The parser reads all the java source code in the provided source path, and creates
+- Parser – The parser takes the java source code from the input path, and creates
 a grammar language that is interpretable by the UML generator
 
 - UML Generator – This part just generates a diagram as per the input provided
 
-Parser:
+(For parsing) Parser:
 For parsing the JAVA code into a usable grammar, I have used the javaparser library:
+
 https://github.com/javaparser/javaparser
 
 The library provides various methods and classes that read the source code and provide access to
 each sub-unit of the code via various methods or classes.
 
-UML Generator:
-For generating the class diagram from the parsed code returned by the parser, I have used yUML beta.
-http://yuml.me/
+(For generating diagram) UML Generator:
 
-yUML is a free online tool for creating and publishing UML diagrams, which currently supports
-class and use case diagrams.
+The program sends an HTTP request to the URL : http://yuml.me/diagram/simple/class/<Grammar>
+and gets the diagram.
 
-The program fires a GET query to the URL : http://yuml.me/diagram/plain/class/<Grammar>
-and gets the diagram. Thus, an internet connection is needed for the program to work.
-
-For generating the sequence diagram, plantUML is integrated in the code: http://plantuml.com/
+For generating the sequence diagram, plantUML is required: http://plantuml.com/
