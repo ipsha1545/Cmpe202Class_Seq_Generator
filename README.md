@@ -4,7 +4,7 @@ A Parser which generates UML Class Diagram from Java code
 ### Instructions for execution
 
 #### Requirements:
-- Java JDK version 1.8
+- JDK - 1.8
 - Maven
 
 The program expects following arguments:
@@ -60,6 +60,7 @@ java -jar umlparser.jar seq "C:\Users\uml-generator-java\Test Classes\sequence-d
 There are 2 parts of this UML parser program:
 
 - Parser – The parser takes the java source code from the input path, and creates
+
 a grammar language that is interpretable by the UML generator
 
 - UML Generator – This part just generates a diagram as per the input provided
@@ -70,11 +71,15 @@ For parsing the JAVA code into a usable grammar, I have used the javaparser libr
 https://github.com/javaparser/javaparser
 
 The library provides various methods and classes that read the source code and provide access to
+
 each sub-unit of the code via various methods or classes.
 
 (For generating diagram) UML Generator:
 
-The program sends an HTTP request to the URL : http://yuml.me/diagram/simple/class/<Grammar>
+The program sends an HTTP request to the URL:
+
+http://yuml.me/diagram/simple/class/<Grammar>
+
 and gets the diagram.
 
 For generating the sequence diagram, plantUML is required: http://plantuml.com/
